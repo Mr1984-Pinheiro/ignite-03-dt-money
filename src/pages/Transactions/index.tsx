@@ -13,6 +13,7 @@ import {
 } from "./styles";
 import { CaretLeft, CaretRight } from "phosphor-react";
 import { TransactionsContext } from "../../contexts/TransactionsContext";
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 export function Transactions() {
   const { transactions } = useContext(TransactionsContext);
@@ -38,15 +39,17 @@ export function Transactions() {
             {currentData.map((transaction) => {
               return (
                 <tr key={transaction.id}>
-                  <td width="30%">{transaction.description}</td>
+                  <td width="50%">{transaction.description}</td>
                   <td>
                     <PriceHighlight variant={transaction.type}>
-                      {transaction.type === "income" ? "R$ " : "-R$ "}
-                      {transaction.price.toFixed(2)}
+                      {transaction.type === "outcome" && "- "}
+                      {priceFormatter.format(transaction.price)}
                     </PriceHighlight>
                   </td>
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
                 </tr>
               );
             })}

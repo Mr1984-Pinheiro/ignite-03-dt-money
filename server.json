@@ -6,7 +6,7 @@
         "type": "income",
         "category": "Venda",
         "price": 14000,
-        "createdAt": "2022-07-29T19:36:44.505Z"
+        "createdAt": "2023-08-11T19:36:44.505Z"
       },
       {
         "id": 2,
@@ -14,7 +14,7 @@
         "type": "outcome",
         "category": "Alimentação",
         "price": 50,
-        "createdAt": "2022-07-29T19:30:44.505Z"
+        "createdAt": "2023-08-10T19:30:44.505Z"
       },
       {
         "id": 3,
@@ -22,7 +22,7 @@
         "type": "income",
         "category": "Venda",
         "price": 14000,
-        "createdAt": "2022-07-29T19:36:44.505Z"
+        "createdAt": "2023-08-11T19:36:44.505Z"
       },
       {
         "id": 4,
@@ -30,7 +30,7 @@
         "type": "outcome",
         "category": "Alimentação",
         "price": 50,
-        "createdAt": "2022-07-29T19:30:44.505Z"
+        "createdAt": "2023-08-10T19:30:44.505Z"
       },
       {
         "id": 5,
@@ -38,7 +38,7 @@
         "type": "income",
         "category": "Venda",
         "price": 14000,
-        "createdAt": "2022-07-29T19:36:44.505Z"
+        "createdAt": "2023-08-11T19:36:44.505Z"
       },
       {
         "id": 6,
@@ -46,7 +46,7 @@
         "type": "outcome",
         "category": "Alimentação",
         "price": 50,
-        "createdAt": "2022-07-29T19:30:44.505Z"
+        "createdAt": "2023-08-10T19:30:44.505Z"
       },
       {
         "id": 7,
@@ -54,7 +54,7 @@
         "type": "income",
         "category": "Venda",
         "price": 14000,
-        "createdAt": "2022-07-29T19:36:44.505Z"
+        "createdAt": "2023-08-11T19:36:44.505Z"
       },
       {
         "id": 8,
@@ -62,7 +62,7 @@
         "type": "outcome",
         "category": "Alimentação",
         "price": 50,
-        "createdAt": "2022-07-29T19:30:44.505Z"
+        "createdAt": "2023-08-10T19:30:44.505Z"
       }
     ]
   }
