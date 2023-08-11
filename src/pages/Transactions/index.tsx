@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
-import { usePagination } from "../../hook/usePagination";
+import { usePagination } from "../../hooks/usePagination";
 import { SearchForm } from "./components/SearchForm";
 
 import {
