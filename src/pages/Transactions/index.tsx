@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
 import { usePagination } from "../../hook/usePagination";
@@ -13,134 +14,32 @@ import {
 import { CaretLeft, CaretRight } from "phosphor-react";
 
 interface Transaction {
+  id: number;
   description: string;
-  amount: number;
-  variant: "income" | "outcome";
+  type: "income" | "outcome";
+  price: number;
   category: string;
-  date: string;
+  createdAt: string;
 }
 
 export function Transactions() {
-  const transactionsData: Transaction[] = [
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    {
-      description: "Desenvolvimento de site",
-      amount: 12000,
-      variant: "income",
-      category: "Venda",
-      date: "13/04/2022",
-    },
-    {
-      description: "Hambúrguer",
-      amount: 59,
-      variant: "outcome",
-      category: "Alimentação",
-      date: "10/04/2022",
-    },
-    // Add more data as needed
-  ];
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  async function loadTransactions() {
+    const response = await fetch("http://localhost:3333/transactions");
+    const data = await response.json();
+
+    setTransactions(data);
+  }
+
+  useEffect(() => {
+    loadTransactions();
+  }, []);
 
   const itemsPerPage = 7; // Adjust the number of items per page as needed
 
   const { currentPage, setCurrentPage, totalPages, currentData } =
-    usePagination(transactionsData, itemsPerPage);
+    usePagination(transactions, itemsPerPage);
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
@@ -155,19 +54,21 @@ export function Transactions() {
         <SearchForm />
         <TransactionsTable>
           <tbody>
-            {currentData.map((transaction, index) => (
-              <tr key={index}>
-                <td width="50%">{transaction.description}</td>
-                <td>
-                  <PriceHighlight variant={transaction.variant}>
-                    {transaction.variant === "income" ? "R$ " : "-R$ "}
-                    {transaction.amount.toFixed(2)}
-                  </PriceHighlight>
-                </td>
-                <td>{transaction.category}</td>
-                <td>{transaction.date}</td>
-              </tr>
-            ))}
+            {currentData.map((transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHighlight variant={transaction.type}>
+                      {transaction.type === "income" ? "R$ " : "-R$ "}
+                      {transaction.price.toFixed(2)}
+                    </PriceHighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>{transaction.createdAt}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </TransactionsTable>
         <PaginationContent>

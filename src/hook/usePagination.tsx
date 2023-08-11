@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 interface Transaction {
+  id: number;
   description: string;
-  amount: number;
-  variant: "income" | "outcome";
+  type: "income" | "outcome";
+  price: number;
   category: string;
-  date: string;
+  createdAt: string;
 }
 
 interface PaginationResult {
