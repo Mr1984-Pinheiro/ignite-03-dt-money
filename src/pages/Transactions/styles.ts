@@ -23,7 +23,7 @@ export const TransactionsTable = styled.table`
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
     }
-  }
+  }  
 `;
 
 interface PriceHighlightProps {
