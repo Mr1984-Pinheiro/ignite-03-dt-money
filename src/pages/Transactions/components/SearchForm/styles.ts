@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const SearchFormContainer = styled.form`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 421px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
   input {
     flex: 1;
     border-radius: 6px;

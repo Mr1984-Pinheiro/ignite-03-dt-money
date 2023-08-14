@@ -3,9 +3,12 @@ import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
 import { usePagination } from "../../hooks/usePagination";
 import { SearchForm } from "./components/SearchForm";
+import categoryIcon from "..//../assets/categoryIcon.svg";
+import dateIcon from "../../assets/dateIcon.svg";
 
 import {
   ButtonCorrent,
+  MobileContainer,
   PaginationContent,
   PriceHighlight,
   TransactionsContainer,
@@ -34,6 +37,34 @@ export function Transactions() {
       <Summary />
       <TransactionsContainer>
         <SearchForm />
+
+        {currentData.map((transaction) => {
+          return (
+            <MobileContainer key={transaction.id}>
+              <p>{transaction.description}</p>
+              <strong>
+                <PriceHighlight variant={transaction.type}>
+                  {transaction.type === "outcome" && "- "}
+                  {priceFormatter.format(transaction.price)}
+                </PriceHighlight>
+              </strong>
+
+              <footer>
+                <div>
+                  <img src={categoryIcon} alt="" />
+                  <span>{transaction.category}</span>
+                </div>
+                <div>
+                  <img src={dateIcon} alt="" />
+                  <span>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </span>
+                </div>
+              </footer>
+            </MobileContainer>
+          );
+        })}
+
         <TransactionsTable>
           <tbody>
             {currentData.map((transaction) => {

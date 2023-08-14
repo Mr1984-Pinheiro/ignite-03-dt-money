@@ -12,6 +12,11 @@ export const TransactionsTable = styled.table`
   border-collapse: separate;
   border-spacing: 0 0.5rem;
   margin-top: 1.5rem;
+
+  @media (max-width:690px) {
+    display: none;
+  }
+
   td {
     padding: 1.25rem 2rem;
     background: ${props => props.theme["gray-700"]};
@@ -24,6 +29,48 @@ export const TransactionsTable = styled.table`
       border-bottom-right-radius: 6px;
     }
   }  
+`;
+
+export const MobileContainer = styled.div`
+  padding: 20px;
+  background: ${props => props.theme["gray-700"]};
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+  
+
+  @media (min-width:690px) {
+    display: none;
+  }
+
+  strong {
+    font-size: 20px;
+  }
+
+  footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      span {
+        color: ${props => props.theme["gray-500"]};
+
+      }
+    }
+  }
 `;
 
 interface PriceHighlightProps {
