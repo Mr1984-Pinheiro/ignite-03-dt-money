@@ -14,12 +14,12 @@ import {
   TransactionsContainer,
   TransactionsTable,
 } from "./styles";
-import { CaretLeft, CaretRight } from "phosphor-react";
+import { CaretLeft, CaretRight, Trash } from "phosphor-react";
 import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions, deleteTransaction } = useContext(TransactionsContext);
 
   const itemsPerPage = 7; // Adjust the number of items per page as needed
 
@@ -30,6 +30,14 @@ export function Transactions() {
   const isLastPage = currentPage === totalPages;
 
   const pagesToDisplay = Math.min(totalPages); // Limit the number of pages displayed
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteTransaction(id);
+    } catch (error) {
+      console.error("Error deleting transaction:", error);
+    }
+  };
 
   return (
     <div>
@@ -80,6 +88,11 @@ export function Transactions() {
                   <td>{transaction.category}</td>
                   <td>
                     {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                  <td>
+                    <button onClick={() => handleDelete(transaction.id)}>
+                      <Trash size={20} />
+                    </button>
                   </td>
                 </tr>
               );

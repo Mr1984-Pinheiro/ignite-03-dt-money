@@ -28,6 +28,28 @@ export const TransactionsTable = styled.table`
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
     }
+
+    button {
+      border: none;
+      background: inherit;
+      cursor: pointer;
+      line-height: 0;
+      border-radius: 9999px;
+      padding: 0.5rem;
+
+      svg {
+        color: ${props => props.theme["red-300"]}; 
+      }
+
+      &:hover {
+        background: ${props => props.theme["gray-600"]} ;        
+        svg {
+        color: ${props => props.theme["red-500"]}; 
+        transition: background-color 0.2s, color 0.2s;
+        
+      }
+      }
+    }
   }  
 `;
 
