@@ -23,7 +23,11 @@ const newTransactionFormSchema = z.object({
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
-export function NewTransactionModal() {
+interface Props {
+  onOpen: () => void;
+}
+
+export function NewTransactionModal({ onOpen }: Props) {
   const { createTransaction } = useContext(TransactionsContext);
 
   const {
@@ -50,6 +54,7 @@ export function NewTransactionModal() {
     });
 
     reset();
+    onOpen();
   }
   return (
     <Dialog.Portal>
