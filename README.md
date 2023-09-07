@@ -17,9 +17,7 @@ Por [Carlos Eduardo](https://github.com/Mr1984-Pinheiro)
 
 ## Start
 
-Vou partir do princípio que você é aspirantes a programação e não está familiarizados com o **Git** ou **Node.js**, então primeiro você precisa instalar o [Node.js](https://nodejs.org/en/) no seu pc e seguir o procedimento padrão de instalação **next->next->ok**, recomendo você baixar o [Git](https://git-scm.com/downloads) e instalar na sua maquina, depois basta copiar a URL do projeto conforme abaixo:
-
-![Start](git@github.com:Mr1984-Pinheiro/ignite-03-dt-money.git)
+Vou partir do princípio que você é aspirantes a programação e não está familiarizados com o **Git** ou **Node.js**, então primeiro você precisa instalar o [Node.js](https://nodejs.org/en/) no seu pc e seguir o procedimento padrão de instalação **next->next->ok**, recomendo você baixar o [Git](https://git-scm.com/downloads) 
 
 ## Clonando o Repositório
 
@@ -34,13 +32,13 @@ npm install
 ![Clone](https://i.imgsafe.org/ca/caed010086.gif)
 
 ## Rodando o projeto
-
-```pnpm ou npm run dev
+```
+pnpm ou npm run dev
 
 ```
 
 ## Rodando o servidor
-
-```pnpm ou npm run dev:server
+```
+pnpm ou npm run dev:server
 
 ```
