@@ -9,14 +9,6 @@
       "id": 1
     },
     {
-      "description": "Desenvolvimento de site ",
-      "price": 14000,
-      "category": "Venda",
-      "type": "income",
-      "createdAt": "2023-08-15T23:45:17.367Z",
-      "id": 2
-    },
-    {
       "description": "Passeio",
       "price": 2000,
       "category": "Lazer",
@@ -33,20 +25,36 @@
       "id": 5
     },
     {
-      "description": "Rango de frango",
-      "price": 351,
-      "category": "Renda",
-      "type": "income",
-      "createdAt": "2023-08-16T00:15:15.843Z",
-      "id": 6
-    },
-    {
       "description": "Desenvolvimento de site ",
       "price": 5100,
       "category": "Venda",
       "type": "income",
       "createdAt": "2023-08-16T00:15:50.329Z",
       "id": 7
+    },
+    {
+      "description": "Manutenção site",
+      "price": 3000,
+      "category": "Freela",
+      "type": "income",
+      "createdAt": "2023-08-21T19:38:16.558Z",
+      "id": 8
+    },
+    {
+      "description": "Mercado",
+      "price": 900,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-08-21T19:38:49.046Z",
+      "id": 9
+    },
+    {
+      "description": "Aluguel",
+      "price": 1350,
+      "category": "Moradia",
+      "type": "outcome",
+      "createdAt": "2023-08-21T19:39:16.168Z",
+      "id": 10
     }
   ]
 }
